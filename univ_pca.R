@@ -1,0 +1,10 @@
+library(readr)
+univ<-read.csv('C:/Users/HP/Desktop/datasets/Universities.csv')
+View(univ)
+univ_data<-scale(univ[,-1])
+View(univ_data)
+pca<-princomp(univ_data,scores=TRUE)
+summary(pca)
+pca$scores
+plot(pca$scores[,1:2],col='Blue',cex=0.2)
+text(pca$scores[,1:2],labels=c(1:25),cex=0.7)
